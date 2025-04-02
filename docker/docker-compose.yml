@@ -1,0 +1,19 @@
+services:
+  couchbase:
+    image: couchbase:latest
+    restart: always
+    ports:
+      - 8091-8097:8091-8097
+      - 9123:9123
+      - 11207:11207
+      - 11210:11210
+      - 11280:11280
+      - 18091-18097:18091-18097
+    environment:
+      - COUCHBASE_USERNAME=admin
+      - COUCHBASE_PASSWORD=password
+      - COUCHBASE_BUCKET=travel-sample
+    volumes:
+      - couchbase_data:/opt/couchbase/var
+volumes:
+  couchbase_data:
